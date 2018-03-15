@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>FRIEND LIST 2</title>
+</head>
+<body>
+<ol id="kaverit">
+
+</ol>
+
+
+<script>
+    // var kaveri1 = window.prompt('Add a Friend');
+    // var kaveri2 = window.prompt('Anna toisen kaverin nimi');
+    
+    var frendit = [];
+
+    for (var i=0; i < 10; i++) {
+        frendit.push(window.prompt('Add a Friend'));
+    }
+    
+
+    var lista = document.getElementById('kaverit');
+    
+    for (var nro=0; nro < frendit.length; nro++) {
+        lista.innerHTML += '<li>' + frendit[nro] + '</li>';
+    }
+        
+    
+</script>
+</body>
+</html>
