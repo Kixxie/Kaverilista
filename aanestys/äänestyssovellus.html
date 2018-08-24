@@ -1,0 +1,97 @@
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <style>
+        .piilota {
+            display: none;
+        }
+        #v1 {
+            background-color: green;
+            padding: 5px;
+            color: rgb(0, 0, 0);
+            margin: 20px;
+            border-radius: 8px;
+            
+        }
+        #v2 {
+            background-color:tomato;
+            padding: 5px;
+            color:rgb(0, 0, 0);
+            margin: 20px;
+            border-radius: 8px;
+        }
+
+        </style>
+
+    </head>
+<body>
+
+    <div id="poll">
+        <h3>Do you like Dreams?</h3>
+
+        <button type="button" onclick="getVote(0)">Yes</button>
+        <br>
+        <button type="button" onclick="getVote(1)">No</button>
+
+    </div>
+    <div id="tulokset" class="piilota">
+        <h1>Äänestystulokset</h1>
+        <div class="palkki" id="v1">Yes</div>
+        <div class="palkki" id="v2">No</div>
+        <button onclick="uusiAanestys()">Äänestä uudelleen</button>
+    </div>
+ 
+    <script>
+            let vaihtoehto1 = 0;
+            let vaihtoehto2 = 0;
+
+            let aanestys_div = document.getElementById('poll');
+            let tulokset_div = document.getElementById('tulokset');
+            let palkki1 = document.getElementById('v1');
+            let palkki2 = document.getElementById('v2');
+
+            function uusiAanestys(){
+                aanestys_div.classList.remove('piilota');
+                tulokset_div.classList.add('piilota');
+            }
+            
+            function getVote(int) {
+                console.log(int);
+                aanestys_div.classList.add('piilota');
+                tulokset_div.classList.remove('piilota');
+                
+                if (int == 0) {
+                    vaihtoehto1++;
+                } else if(int == 1) {
+                    vaihtoehto2++;
+                }
+                
+                palkki1.style.width = vaihtoehto1 * 15 + "px";
+                palkki2.style.width = vaihtoehto2 * 15 + "px";
+                
+
+                document.getElementById('tulokset').classList.add('show');
+
+                // alert("Vaihtoethoto1: " + vaihtoehto1 + " ja vaihtoehto 2 : " + vaihtoehto2);
+
+
+                // if (window.XMLHttpRequest) {
+                //     // code for IE7+, Firefox, Chrome, Opera, Safari
+                //     xmlhttp=new XMLHttpRequest();
+                // }   else  { // code for IE6, IE5
+                //     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                // }
+                // xmlhttp.onreadystatechange=function() {
+                //     if (this.readyState==4 && this.status==200) {
+                //         document.getElementById("poll").innerHTML=this.responseText;    
+                //     }
+                // }
+                // xmlhttp.open("GET","poll_vote.php?vote="+int,true);
+                // xmlhttp.send();
+            }
+        </script>
+</body>
+</html>
